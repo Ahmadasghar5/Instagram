@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:instagram/common/app_widgets.dart';
 import 'package:instagram/screens/auth/login/controller/login_controller.dart';
+import 'package:instagram/screens/auth/signup/signup.dart';
 import 'package:instagram/utils/assets.dart';
 import 'package:instagram/utils/sizes.dart';
 
@@ -70,7 +71,8 @@ class Login extends StatelessWidget {
                   ),
                 ),
                 XSize.boxHeight(0.015),
-                const XTextButton(
+                XTextButton(
+                  onTap: () {},
                   buttonText: "Log In",
                 ),
                 XSize.boxHeight(0.013),
@@ -78,7 +80,7 @@ class Login extends StatelessWidget {
                   TextSpan(
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        ///Backend
+                        Get.off(ForgetPassword());
                       },
                     text: "Forgot password?",
                     style: TextStyle(
@@ -90,6 +92,9 @@ class Login extends StatelessWidget {
                 ),
                 XSize.boxHeight(0.16),
                 XTextButton(
+                  onTap: () {
+                    Get.off(SignUpWithPhoneNumber());
+                  },
                   buttonText: "Create new account",
                   buttonTextColor: Colors.blue.shade700,
                   borderColor: Colors.blue.shade700,

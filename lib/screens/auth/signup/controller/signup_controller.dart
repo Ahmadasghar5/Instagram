@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class SignupController extends GetxController{
+class SignupController extends GetxController {
 
 
 
