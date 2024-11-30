@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:instagram/utils/sizes.dart';
 
 class XTextButton extends StatelessWidget {
@@ -8,23 +9,31 @@ class XTextButton extends StatelessWidget {
     this.buttonTextColor = Colors.white,
     this.backGroundColor = Colors.blueAccent,
     this.borderColor = Colors.blue,
+    required this.onTap,
+    this.buttonHeight = 48,
+    this.buttonIcon,
   });
 
   final String buttonText;
   final Color buttonTextColor;
   final Color backGroundColor;
   final Color borderColor;
+  final VoidCallback onTap;
+  final double? buttonHeight;
+  final FaIcon? buttonIcon;
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {},
+    return TextButton.icon(
+      icon: buttonIcon,
+      iconAlignment: IconAlignment.start,
+      onPressed: onTap,
       style: TextButton.styleFrom(
         side: BorderSide(color: borderColor, width: 1.5),
         backgroundColor: backGroundColor,
-        fixedSize: Size(XSize.xWidth(0.86), XSize.xHeight(0.06)),
+        fixedSize: Size(XSize.xWidth(0.86), buttonHeight!),
       ),
-      child: Text(
+      label: Text(
         buttonText,
         style: TextStyle(color: buttonTextColor, fontSize: 16),
       ),
@@ -54,13 +63,18 @@ class XTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         labelText: textLabel,
-        labelStyle: TextStyle(color: Colors.grey.shade600,fontSize: 17,),
+        labelStyle: TextStyle(
+          color: Colors.grey.shade600,
+          fontSize: 17,
+        ),
         contentPadding: const EdgeInsets.all(15),
         enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
             borderRadius: BorderRadius.all(Radius.circular(10))),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade700,),
+            borderSide: BorderSide(
+              color: Colors.grey.shade700,
+            ),
             borderRadius: const BorderRadius.all(Radius.circular(10))),
       ),
     );
